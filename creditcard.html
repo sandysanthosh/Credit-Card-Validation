@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JavaScript form validation - checking non-empty</title>
+<link rel='stylesheet' href='form-style.css' type='text/css' />      
+</head>
+    <style>
+    li {list-style-type: none;
+font-size: 16pt;
+}
+.mail {
+margin: auto;
+padding-top: 10px;
+padding-bottom: 10px;
+width: 400px;
+background : #D8F1F8;
+border: 1px soild silver;
+}
+.mail h2 {
+margin-left: 38px;
+}
+input {
+font-size: 20pt;
+}
+input:focus, textarea:focus{
+background-color: lightyellow;
+}
+input submit {
+font-size: 12pt;
+}
+.rq {
+color: #FF0000;
+font-size: 10pt;
+}    
+
+    </style>
+    <body onload='document.form1.text1.focus()'>
+<div class="mail">
+<h2>Input Credit Card No.[starting with 300 through 305, 36, or 38, length 14 digits] and Submit</h2>
+<form name="form1" action="#">
+<ul>
+<li><input type='text' name='text1'/></li>
+<li>&nbsp;</li>
+<li class="submit"><input type="submit" name="submit" value="Submit" onclick="cardnumber(document.form1.text1)"/></li>
+<li>&nbsp;</li>
+</ul>
+</form>
+</div>
+</body>
+    <script type="text/javascript">
+    function cardnumber(inputtxt)
+{
+  var cardno = /^(?:3(?:0[0-5]|[68][0-9])[0-9]{11})$/;
+  if(inputtxt.value.match(cardno))
+        {
+      return true;
+        }
+      else
+        {
+        alert("Not a valid Dinners Club card number!");
+        return false;
+        }
+}
+
+    </script>
+</html>
